@@ -41,11 +41,9 @@ kotlin {
 
             implementation(libs.koin.androidx.compose)
 
-            // [auth] start
-            // implementation(libs.androidx.credentials)
-            // implementation(libs.androidx.credentials.play.services.auth)
-            // implementation(libs.googleid)
-            // [auth] end
+            implementation(libs.androidx.credentials)
+            implementation(libs.androidx.credentials.play.services.auth)
+            implementation(libs.googleid)
 
             // [camera] start
             // implementation(libs.androidx.exifinterface)
@@ -75,7 +73,12 @@ kotlin {
             // [push_notifications] implementation(libs.firebase.messaging)
             // [firestore] implementation(libs.firebase.firestore)
             // [messaging] implementation(libs.firebase.database)
-        }
+        
+        // Google Sign-In (Credential Manager)
+        implementation("androidx.credentials:credentials:1.3.0")
+        implementation("androidx.credentials:credentials-play-services-auth:1.3.0")
+        implementation("com.google.android.libraries.identity.googleid:googleid:1.1.1")
+}
 
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)

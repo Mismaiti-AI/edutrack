@@ -1,10 +1,8 @@
 package com.edutrack.core.di
 
 import co.touchlab.kermit.Logger
-// [auth] start
-// import com.edutrack.core.data.auth.AuthRepository
-// import com.edutrack.core.presentation.auth.AuthViewModel
-// [auth] end
+import com.edutrack.core.data.auth.AuthRepository
+import com.edutrack.core.presentation.auth.AuthViewModel
 // [firebase_auth] start
 // import com.edutrack.core.data.auth.FirebaseAuthHandler
 // import com.edutrack.core.data.auth.SocialAuthBackendHandler
@@ -12,10 +10,8 @@ import co.touchlab.kermit.Logger
 // [firestore] start
 // import com.edutrack.core.data.firestore.UserProfileSync
 // [firestore] end
-// [google_sheets] start
-// import com.edutrack.core.data.gsheets.GoogleSheetsConfig
-// import com.edutrack.core.data.gsheets.GoogleSheetsService
-// [google_sheets] end
+import com.edutrack.core.data.gsheets.GoogleSheetsConfig
+import com.edutrack.core.data.gsheets.GoogleSheetsService
 // Note: AiChatService import is in AppModule.kt (project-specific implementation)
 // [payment] start
 // import com.edutrack.core.data.payment.PaymentConfigService
@@ -86,19 +82,15 @@ fun coreModule() = module {
     // single { UserProfileSync(firestoreService = get()) }
     // [firestore] end
 
-    // [auth] start
-    // single { AuthRepository(database = get(), backendHandler = getOrNull(), userProfileSync = getOrNull()) }
-    // viewModelOf(::AuthViewModel)
-    // [auth] end
+    single { AuthRepository(database = get(), backendHandler = getOrNull(), userProfileSync = getOrNull()) }
+    viewModelOf(::AuthViewModel)
 
     // [firebase_auth] start
     // single<SocialAuthBackendHandler> { FirebaseAuthHandler() }
     // [firebase_auth] end
 
-    // [google_sheets] start
-    // single { GoogleSheetsConfig(get()) }
-    // single { GoogleSheetsService(get()) }
-    // [google_sheets] end
+    single { GoogleSheetsConfig(get()) }
+    single { GoogleSheetsService(get()) }
 
     // Note: AiChatService implementation is registered in AppModule.kt (project-specific)
 
