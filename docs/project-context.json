@@ -238,5 +238,217 @@
     "setup_completed_at": "2026-03-25T10:22:08.107646",
     "sheets_error": "Please enable the Google Apps Script API in your Google account: https://script.google.com/home/usersettings — Toggle \"Google Apps Script API\" to ON, wait a minute, then try again.",
     "web_app_id": "1:924954132592:web:a21bdb2a4c433f06dc74b5"
+  },
+  "ui_orchestration": {
+    "screens": [
+      {
+        "feature": "Assignment Tracker",
+        "screens": [
+          {
+            "generic_screen": "GenericListScreen",
+            "list_bindings": {
+              "card_title_field": "title",
+              "card_subtitle_field": "subject",
+              "card_badge_field": "dueDate"
+            }
+          },
+          {
+            "generic_screen": "GenericDetailScreen",
+            "detail_rows": [
+              {
+                "field": "title",
+                "label": "Title",
+                "is_badge": false
+              },
+              {
+                "field": "subject",
+                "label": "Subject",
+                "is_badge": false
+              },
+              {
+                "field": "dueDate",
+                "label": "Due Date",
+                "is_badge": false
+              },
+              {
+                "field": "description",
+                "label": "Description",
+                "is_badge": false
+              },
+              {
+                "field": "attachmentUrl",
+                "label": "Attachment Url",
+                "is_badge": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "feature": "Exam Planner",
+        "screens": [
+          {
+            "generic_screen": "GenericListScreen",
+            "list_bindings": {
+              "card_title_field": "title",
+              "card_subtitle_field": "subject",
+              "card_badge_field": "examDate"
+            }
+          },
+          {
+            "generic_screen": "GenericDetailScreen",
+            "detail_rows": [
+              {
+                "field": "title",
+                "label": "Title",
+                "is_badge": false
+              },
+              {
+                "field": "subject",
+                "label": "Subject",
+                "is_badge": false
+              },
+              {
+                "field": "examDate",
+                "label": "Exam Date",
+                "is_badge": false
+              },
+              {
+                "field": "topics",
+                "label": "Topics",
+                "is_badge": false
+              },
+              {
+                "field": "description",
+                "label": "Description",
+                "is_badge": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "feature": "Project Manager",
+        "screens": [
+          {
+            "generic_screen": "GenericListScreen",
+            "list_bindings": {
+              "card_title_field": "title",
+              "card_subtitle_field": "subject",
+              "card_badge_field": "dueDate"
+            }
+          },
+          {
+            "generic_screen": "GenericDetailScreen",
+            "detail_rows": [
+              {
+                "field": "title",
+                "label": "Title",
+                "is_badge": false
+              },
+              {
+                "field": "subject",
+                "label": "Subject",
+                "is_badge": false
+              },
+              {
+                "field": "startDate",
+                "label": "Start Date",
+                "is_badge": false
+              },
+              {
+                "field": "dueDate",
+                "label": "Due Date",
+                "is_badge": false
+              },
+              {
+                "field": "description",
+                "label": "Description",
+                "is_badge": false
+              },
+              {
+                "field": "milestones",
+                "label": "Milestones",
+                "is_badge": false
+              },
+              {
+                "field": "attachmentUrl",
+                "label": "Attachment Url",
+                "is_badge": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "navigation": {
+      "tabs": [
+        {
+          "label": "Home",
+          "icon": "Home",
+          "feature": "Dashboard"
+        },
+        {
+          "label": "Profile",
+          "icon": "AccountCircle",
+          "feature": "Settings"
+        }
+      ],
+      "start_route": "Dashboard"
+    },
+    "dashboard": {
+      "title": "EduTrack",
+      "greeting": "Welcome back",
+      "stats": [
+        {
+          "model": "Assignment",
+          "type": "count",
+          "label": "Total Assignments",
+          "icon": "Check"
+        },
+        {
+          "model": "Exam",
+          "type": "count",
+          "label": "Upcoming Exams",
+          "icon": "DateRange"
+        },
+        {
+          "model": "Project",
+          "type": "count",
+          "label": "Active Projects",
+          "icon": "Build"
+        }
+      ],
+      "quick_actions": [
+        {
+          "label": "New Assignment",
+          "icon": "Add",
+          "route": "CreateAssignment",
+          "model": "Assignment"
+        },
+        {
+          "label": "New Exam",
+          "icon": "Add",
+          "route": "CreateExam",
+          "model": "Exam"
+        },
+        {
+          "label": "New Project",
+          "icon": "Add",
+          "route": "CreateProject",
+          "model": "Project"
+        }
+      ],
+      "recent_items": {
+        "model": "Assignment",
+        "title": "Recent Assignments",
+        "display_field": "title",
+        "subtitle_field": "subject",
+        "badge_field": ""
+      }
+    },
+    "relationships": [],
+    "composite_use_cases": [],
+    "filtered_use_cases": []
   }
 }
