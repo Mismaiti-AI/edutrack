@@ -1,0 +1,242 @@
+{
+  "app_config": {
+    "app_type": "education",
+    "app_types": [
+      "education",
+      "task_manager"
+    ],
+    "name": "EduTrack",
+    "package": "com.edutrack",
+    "purpose": "A mobile app to help students track their school assignments, upcoming exams, and school projects."
+  },
+  "features": [
+    {
+      "api_endpoints": [],
+      "description": "View teacher-managed assignments and track personal completion status with reminders",
+      "display_name": "Assignments",
+      "name": "Assignment Tracker",
+      "priority": "high",
+      "repositories": [],
+      "screens": [
+        {
+          "display_name": "Assignment List",
+          "name": "AssignmentListScreen"
+        },
+        {
+          "display_name": "Assignment Detail",
+          "name": "AssignmentDetailScreen"
+        }
+      ],
+      "use_cases": [
+        "Browse assignment list by subject",
+        "View assignment details",
+        "Mark assignment as done locally",
+        "Receive reminder 1 day before due date"
+      ],
+      "visible_to": []
+    },
+    {
+      "api_endpoints": [],
+      "description": "View upcoming exams with study topics and receive reminders",
+      "display_name": "Exams",
+      "name": "Exam Planner",
+      "priority": "high",
+      "repositories": [],
+      "screens": [
+        {
+          "display_name": "Exam List",
+          "name": "ExamListScreen"
+        },
+        {
+          "display_name": "Exam Detail",
+          "name": "ExamDetailScreen"
+        }
+      ],
+      "use_cases": [
+        "Browse upcoming exams by subject",
+        "View exam details and study topics",
+        "Receive reminder 2 days before exam"
+      ],
+      "visible_to": []
+    },
+    {
+      "api_endpoints": [],
+      "description": "View school projects with milestones and receive reminders",
+      "display_name": "Projects",
+      "name": "Project Manager",
+      "priority": "high",
+      "repositories": [],
+      "screens": [
+        {
+          "display_name": "Project List",
+          "name": "ProjectListScreen"
+        },
+        {
+          "display_name": "Project Detail",
+          "name": "ProjectDetailScreen"
+        }
+      ],
+      "use_cases": [
+        "Browse projects by subject",
+        "View project details and milestones",
+        "Receive reminder 3 days before due date"
+      ],
+      "visible_to": []
+    },
+    {
+      "api_endpoints": [],
+      "description": "Overview of upcoming assignments, exams, and projects",
+      "display_name": "Home",
+      "name": "Dashboard",
+      "priority": "high",
+      "repositories": [],
+      "screens": [
+        {
+          "display_name": "Dashboard",
+          "name": "DashboardScreen"
+        }
+      ],
+      "use_cases": [
+        "See today's assignments",
+        "View upcoming exams this week",
+        "Check active projects"
+      ],
+      "visible_to": []
+    },
+    {
+      "api_endpoints": [],
+      "description": "Welcome walkthrough for first-time users",
+      "display_name": "Onboarding",
+      "name": "Onboarding",
+      "priority": "medium",
+      "repositories": [],
+      "screens": [
+        {
+          "display_name": "Onboarding",
+          "name": "OnboardingScreen"
+        }
+      ],
+      "use_cases": [
+        "Show app purpose",
+        "Explain how to switch Google Sheet for new grade",
+        "Highlight key features"
+      ],
+      "visible_to": []
+    },
+    {
+      "api_endpoints": [],
+      "description": "App preferences including Google Sheet configuration and dark mode",
+      "display_name": "Settings",
+      "name": "Settings",
+      "priority": "medium",
+      "repositories": [],
+      "screens": [
+        {
+          "display_name": "Settings",
+          "name": "SettingsScreen"
+        }
+      ],
+      "use_cases": [
+        "Update Google Sheet ID for new grade",
+        "Toggle dark mode",
+        "View app info"
+      ],
+      "visible_to": []
+    }
+  ],
+  "data_models": [
+    {
+      "fields": [
+        "id: String",
+        "title: String",
+        "subject: String",
+        "dueDate: Instant",
+        "description: String",
+        "attachmentUrl: String"
+      ],
+      "layer": "domain",
+      "name": "Assignment",
+      "relationships": []
+    },
+    {
+      "fields": [
+        "id: String",
+        "title: String",
+        "subject: String",
+        "examDate: Instant",
+        "topics: String",
+        "description: String"
+      ],
+      "layer": "domain",
+      "name": "Exam",
+      "relationships": []
+    },
+    {
+      "fields": [
+        "id: String",
+        "title: String",
+        "subject: String",
+        "startDate: Instant",
+        "dueDate: Instant",
+        "description: String",
+        "milestones: String",
+        "attachmentUrl: String"
+      ],
+      "layer": "domain",
+      "name": "Project",
+      "relationships": []
+    }
+  ],
+  "backend_config": {
+    "config": {
+      "access_mode": "read_only",
+      "config_type": "configurable"
+    },
+    "type": "google_sheets"
+  },
+  "ui_design": {
+    "app_icon_prompt": "minimalist app icon, Professional app icon for a student productivity app called EduTrack, primary color #EC6094, structured and clean style, featuring an organized checklist or academic cap symbol on a subtle gradient background, app icon, no text, no letters, no words, flat design, vibrant colors, centered composition, no text, no shadows, no rounded corners, 1024x1024",
+    "app_icon_url": "https://dashscope-result-sh.oss-cn-shanghai.aliyuncs.com/7d/67/20260325/d23adf3d/2170a7a1-bfc1-9e5b-babc-19f2f034a76c1601237291.png?Expires=1775039528&OSSAccessKeyId=LTAI5tKPD3TMqf2Lna1fASuh&Signature=CVY7QKitS6%2BhhW91t%2B8hMRXcoMM%3D",
+    "has_dark_mode": true,
+    "palette_style": "Expressive",
+    "seed_color": "#EC6094",
+    "style": "professional"
+  },
+  "platform_features_config": {
+    "features_configured": [
+      "firebase",
+      "android_config",
+      "ios_config",
+      "web_config",
+      "firestore",
+      "admin_seeded",
+      "auth"
+    ],
+    "firebase_project_id": "edutrack-d28b37",
+    "manual_steps_required": [
+      {
+        "description": "Apple Sign-In requires configuration in Apple Developer Console, Firebase Console, and Xcode",
+        "feature": "auth_apple_setup",
+        "requires_team_setup": true,
+        "steps": [
+          "Configure Sign in with Apple service ID in Apple Developer Console",
+          "Create a private key for Sign in with Apple",
+          "Enable Apple as sign-in provider in Firebase Console with Service ID + Key",
+          "Add \"Sign in with Apple\" capability in Xcode project"
+        ],
+        "urls": {
+          "apple_developer": "https://developer.apple.com/account/resources/identifiers/list",
+          "firebase_console": "https://console.firebase.google.com/project/edutrack-d28b37/authentication/providers"
+        }
+      },
+      {
+        "description": "Enable Google Sign-In in Firebase Console → Authentication → Sign-in method. This auto-creates the Web Client ID needed for Google Sign-In on mobile.",
+        "feature": "auth_google_sign_in",
+        "url": "https://console.firebase.google.com/project/edutrack-d28b37/authentication/providers"
+      }
+    ],
+    "setup_completed_at": "2026-03-25T10:22:08.107646",
+    "sheets_error": "Please enable the Google Apps Script API in your Google account: https://script.google.com/home/usersettings — Toggle \"Google Apps Script API\" to ON, wait a minute, then try again.",
+    "web_app_id": "1:924954132592:web:a21bdb2a4c433f06dc74b5"
+  }
+}
