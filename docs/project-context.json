@@ -1,0 +1,3089 @@
+{
+  "app_config": {
+    "app_type": "education",
+    "app_types": [
+      "education",
+      "task_manager"
+    ],
+    "name": "EduTrack",
+    "package": "com.edutrack",
+    "purpose": "An app to help students track their school assignments, upcoming exams, and school projects."
+  },
+  "features": [
+    {
+      "api_endpoints": [],
+      "description": "View and track school assignments from teacher's Google Sheet",
+      "display_name": "Assignments",
+      "name": "Assignment Tracking",
+      "priority": "high",
+      "repositories": [],
+      "screens": [
+        {
+          "display_name": "Assignment List",
+          "name": "AssignmentListScreen"
+        },
+        {
+          "display_name": "Assignment Detail",
+          "name": "AssignmentDetailScreen"
+        }
+      ],
+      "use_cases": [
+        "Browse assignment list",
+        "View assignment details",
+        "Filter by subject or due date"
+      ],
+      "visible_to": []
+    },
+    {
+      "api_endpoints": [],
+      "description": "View upcoming exams with study references from teacher's Google Sheet",
+      "display_name": "Exams",
+      "name": "Exam Tracking",
+      "priority": "high",
+      "repositories": [],
+      "screens": [
+        {
+          "display_name": "Exam List",
+          "name": "ExamListScreen"
+        },
+        {
+          "display_name": "Exam Detail",
+          "name": "ExamDetailScreen"
+        }
+      ],
+      "use_cases": [
+        "Browse exam list",
+        "View exam details",
+        "Filter by subject or date"
+      ],
+      "visible_to": []
+    },
+    {
+      "api_endpoints": [],
+      "description": "View school projects with team info from teacher's Google Sheet",
+      "display_name": "Projects",
+      "name": "Project Tracking",
+      "priority": "high",
+      "repositories": [],
+      "screens": [
+        {
+          "display_name": "Project List",
+          "name": "ProjectListScreen"
+        },
+        {
+          "display_name": "Project Detail",
+          "name": "ProjectDetailScreen"
+        }
+      ],
+      "use_cases": [
+        "Browse project list",
+        "View project details",
+        "Filter by subject or due date"
+      ],
+      "visible_to": []
+    },
+    {
+      "api_endpoints": [],
+      "description": "First-time user walkthrough with 3 swipeable pages",
+      "display_name": "Welcome",
+      "name": "Onboarding",
+      "priority": "medium",
+      "repositories": [],
+      "screens": [
+        {
+          "display_name": "Onboarding",
+          "name": "OnboardingScreen"
+        }
+      ],
+      "use_cases": [
+        "Show welcome screens on first launch",
+        "Explain how to switch Google Sheets"
+      ],
+      "visible_to": []
+    },
+    {
+      "api_endpoints": [],
+      "description": "App preferences including dark mode toggle and Google Sheet configuration",
+      "display_name": "Settings",
+      "name": "Settings",
+      "priority": "medium",
+      "repositories": [],
+      "screens": [
+        {
+          "display_name": "Settings",
+          "name": "SettingsScreen"
+        }
+      ],
+      "use_cases": [
+        "Toggle dark mode",
+        "Configure Google Sheet ID",
+        "View app info"
+      ],
+      "visible_to": []
+    }
+  ],
+  "data_models": [
+    {
+      "fields": [
+        "id: String",
+        "title: String",
+        "subject: String",
+        "dueDate: Instant",
+        "instructions: String"
+      ],
+      "layer": "domain",
+      "name": "Assignment",
+      "relationships": []
+    },
+    {
+      "fields": [
+        "id: String",
+        "name: String",
+        "subject: String",
+        "dateTime: Instant",
+        "description: String",
+        "studyReference: String"
+      ],
+      "layer": "domain",
+      "name": "Exam",
+      "relationships": []
+    },
+    {
+      "fields": [
+        "id: String",
+        "title: String",
+        "subject: String",
+        "dueDate: Instant",
+        "description: String",
+        "teamMembers: String"
+      ],
+      "layer": "domain",
+      "name": "Project",
+      "relationships": []
+    }
+  ],
+  "backend_config": {
+    "config": {
+      "access_mode": "read_only",
+      "config_type": "configurable",
+      "script_url": "",
+      "spreadsheet_url": "https://docs.google.com/spreadsheets/d/1y0O_SaKi0JPF_l7L36Cf5CHGvY1G4dXuAfA2d7DOCFI/edit",
+      "spreadsheet_id": "1y0O_SaKi0JPF_l7L36Cf5CHGvY1G4dXuAfA2d7DOCFI"
+    },
+    "type": "google_sheets"
+  },
+  "ui_design": {
+    "app_icon_prompt": "minimalist app icon, Minimalist app icon for a student assignment tracker, primary color #FFD3AE, professional clean style, single simple checkmark symbol on solid soft peach background, no gradients, no extra elements, app icon, no text, no letters, no words, flat design, vibrant colors, centered composition, no text, no shadows, no rounded corners, 1024x1024",
+    "app_icon_url": "https://dashscope-result-sh.oss-cn-shanghai.aliyuncs.com/7d/7a/20260409/d23adf3d/d8f340d1-ea80-9cad-b5f1-a784886c375d2460167062.png?Expires=1776304671&OSSAccessKeyId=LTAI5tKPD3TMqf2Lna1fASuh&Signature=wQYuoyzBfuSkK9H8oIa7kuhv%2F4c%3D",
+    "has_dark_mode": true,
+    "palette_style": "TonalSpot",
+    "seed_color": "#FFD3AE",
+    "style": "professional"
+  },
+  "platform_features_config": {
+    "features_configured": [
+      "firebase",
+      "android_config",
+      "ios_config"
+    ],
+    "manual_steps_required": [],
+    "firebase_project_id": "edutrack-4f3041",
+    "sheets": {
+      "spreadsheet_id": "1y0O_SaKi0JPF_l7L36Cf5CHGvY1G4dXuAfA2d7DOCFI",
+      "spreadsheet_url": "https://docs.google.com/spreadsheets/d/1y0O_SaKi0JPF_l7L36Cf5CHGvY1G4dXuAfA2d7DOCFI/edit",
+      "script_id": "",
+      "script_url": ""
+    },
+    "setup_completed_at": "2026-04-09T03:41:42.379955"
+  },
+  "relationships": [],
+  "ui_orchestration": {},
+  "screen_configs": [
+    {
+      "app_name": "EduTrack",
+      "app_type": "education",
+      "feature_name": "",
+      "model_name": "",
+      "nav": {
+        "fab_icon": null,
+        "fab_route": null,
+        "has_fab": false,
+        "items": [
+          {
+            "icon": "Home",
+            "label": "Home",
+            "route": "home",
+            "visible_to": []
+          },
+          {
+            "icon": "Assignment",
+            "label": "Assignments",
+            "route": "assignment_list",
+            "visible_to": []
+          },
+          {
+            "icon": "School",
+            "label": "Exams",
+            "route": "exam_list",
+            "visible_to": []
+          },
+          {
+            "icon": "Person",
+            "label": "Profile",
+            "route": "profile",
+            "visible_to": []
+          }
+        ],
+        "type": "bottom"
+      },
+      "package_name": "com.edutrack",
+      "screen_id": "home",
+      "slots": {
+        "activity": {
+          "properties": {
+            "maxItems": 5,
+            "model": "Assignment",
+            "showSeeAll": true,
+            "title": "Recent Assignments"
+          },
+          "type": "RecentList"
+        },
+        "header": {
+          "properties": {
+            "showGreeting": true,
+            "showSearch": true
+          },
+          "type": "AppHeader"
+        },
+        "quickActions": {
+          "properties": {
+            "items": [
+              {
+                "icon": "Add",
+                "label": "New Assignment",
+                "route": "assignment_tracking_form",
+                "target_model": "Assignment"
+              },
+              {
+                "icon": "Add",
+                "label": "New Exam",
+                "route": "exam_tracking_form",
+                "target_model": "Exam"
+              }
+            ]
+          },
+          "type": "QuickActions"
+        },
+        "stats": {
+          "properties": {
+            "items": [
+              {
+                "icon": "Info",
+                "label": "Assignments",
+                "model": "Assignment",
+                "type": "count",
+                "value": "12"
+              },
+              {
+                "icon": "Info",
+                "label": "Exams",
+                "model": "Exam",
+                "type": "count",
+                "value": "48"
+              },
+              {
+                "icon": "Info",
+                "label": "Projects",
+                "model": "Project",
+                "type": "count",
+                "value": "156"
+              }
+            ]
+          },
+          "type": "StatCardRow"
+        }
+      },
+      "template": "dashboard",
+      "theme": {
+        "atmosphere": "none",
+        "background_hex": "121212",
+        "dark_colors": [
+          [
+            "primary",
+            "#c5bcdc"
+          ],
+          [
+            "on-primary",
+            "#2c2343"
+          ],
+          [
+            "primary-container",
+            "#413465"
+          ],
+          [
+            "on-primary-container",
+            "#e2deed"
+          ],
+          [
+            "secondary",
+            "#ccc4d4"
+          ],
+          [
+            "on-secondary",
+            "#332b3b"
+          ],
+          [
+            "secondary-container",
+            "#4d4059"
+          ],
+          [
+            "on-secondary-container",
+            "#e6e2e9"
+          ],
+          [
+            "tertiary",
+            "#d7c1d1"
+          ],
+          [
+            "on-tertiary",
+            "#3e2838"
+          ],
+          [
+            "tertiary-container",
+            "#5e3b54"
+          ],
+          [
+            "on-tertiary-container",
+            "#ebe0e8"
+          ],
+          [
+            "error",
+            "#f3a5a5"
+          ],
+          [
+            "on-error",
+            "#5a0c0c"
+          ],
+          [
+            "error-container",
+            "#8a0f0f"
+          ],
+          [
+            "on-error-container",
+            "#f9d2d2"
+          ],
+          [
+            "surface",
+            "#0f0f10"
+          ],
+          [
+            "on-surface",
+            "#e5e5e6"
+          ],
+          [
+            "surface-variant",
+            "#4b4950"
+          ],
+          [
+            "on-surface-variant",
+            "#cbcace"
+          ],
+          [
+            "surface-container",
+            "#1e1e1f"
+          ],
+          [
+            "surface-container-low",
+            "#19191a"
+          ],
+          [
+            "surface-container-high",
+            "#2b2a2c"
+          ],
+          [
+            "surface-container-highest",
+            "#37373a"
+          ],
+          [
+            "surface-dim",
+            "#0f0f10"
+          ],
+          [
+            "surface-bright",
+            "#3c3c3f"
+          ],
+          [
+            "outline",
+            "#97949e"
+          ],
+          [
+            "outline-variant",
+            "#4b4950"
+          ],
+          [
+            "inverse-surface",
+            "#e5e5e6"
+          ],
+          [
+            "inverse-on-surface",
+            "#323234"
+          ],
+          [
+            "inverse-primary",
+            "#574488"
+          ],
+          [
+            "scrim",
+            "#000000"
+          ]
+        ],
+        "light_colors": [
+          [
+            "primary",
+            "#574488"
+          ],
+          [
+            "on-primary",
+            "#ffffff"
+          ],
+          [
+            "primary-container",
+            "#e2deed"
+          ],
+          [
+            "on-primary-container",
+            "#161221"
+          ],
+          [
+            "secondary",
+            "#675577"
+          ],
+          [
+            "on-secondary",
+            "#ffffff"
+          ],
+          [
+            "secondary-container",
+            "#e6e2e9"
+          ],
+          [
+            "on-secondary-container",
+            "#1a161d"
+          ],
+          [
+            "tertiary",
+            "#7e4e71"
+          ],
+          [
+            "on-tertiary",
+            "#ffffff"
+          ],
+          [
+            "tertiary-container",
+            "#ebe0e8"
+          ],
+          [
+            "on-tertiary-container",
+            "#1f141c"
+          ],
+          [
+            "error",
+            "#ba1212"
+          ],
+          [
+            "on-error",
+            "#ffffff"
+          ],
+          [
+            "error-container",
+            "#f9d2d2"
+          ],
+          [
+            "on-error-container",
+            "#2d0606"
+          ],
+          [
+            "surface",
+            "#fafafa"
+          ],
+          [
+            "on-surface",
+            "#19191a"
+          ],
+          [
+            "surface-variant",
+            "#e5e4e7"
+          ],
+          [
+            "on-surface-variant",
+            "#4b4950"
+          ],
+          [
+            "surface-container",
+            "#f0eff0"
+          ],
+          [
+            "surface-container-low",
+            "#f5f5f5"
+          ],
+          [
+            "surface-container-high",
+            "#eaeaeb"
+          ],
+          [
+            "surface-container-highest",
+            "#e5e5e6"
+          ],
+          [
+            "surface-dim",
+            "#dddddf"
+          ],
+          [
+            "surface-bright",
+            "#fafafa"
+          ],
+          [
+            "outline",
+            "#7d7986"
+          ],
+          [
+            "outline-variant",
+            "#cbcace"
+          ],
+          [
+            "inverse-surface",
+            "#323234"
+          ],
+          [
+            "inverse-on-surface",
+            "#f2f2f3"
+          ],
+          [
+            "inverse-primary",
+            "#c5bcdc"
+          ],
+          [
+            "scrim",
+            "#000000"
+          ]
+        ],
+        "mode": "dark",
+        "outline_hex": "#97949e",
+        "primary_hex": "#c5bcdc",
+        "primary_variant_hex": "#413465",
+        "secondary_hex": "#ccc4d4",
+        "seed_color": "FFD3AE",
+        "surface_elevated_hex": "#1e1e1f",
+        "surface_hex": "#0f0f10",
+        "surface_variant_hex": "#4b4950",
+        "tertiary_hex": "#d7c1d1"
+      }
+    },
+    {
+      "app_name": "EduTrack",
+      "app_type": "education",
+      "feature_name": "Assignment Tracking",
+      "model_name": "Assignment",
+      "nav": {
+        "fab_icon": null,
+        "fab_route": null,
+        "has_fab": false,
+        "items": [
+          {
+            "icon": "Home",
+            "label": "Home",
+            "route": "home",
+            "visible_to": []
+          },
+          {
+            "icon": "Assignment",
+            "label": "Assignments",
+            "route": "assignment_list",
+            "visible_to": []
+          },
+          {
+            "icon": "School",
+            "label": "Exams",
+            "route": "exam_list",
+            "visible_to": []
+          },
+          {
+            "icon": "Person",
+            "label": "Profile",
+            "route": "profile",
+            "visible_to": []
+          }
+        ],
+        "type": "bottom"
+      },
+      "package_name": "com.edutrack",
+      "screen_id": "assignment_tracking_list",
+      "slots": {
+        "content": {
+          "properties": {
+            "badge_field": "",
+            "molecule": "CourseCard",
+            "subtitle_field": "",
+            "title_field": "title"
+          },
+          "type": "ScrollList"
+        },
+        "fab": {
+          "properties": {},
+          "type": "CreateFab"
+        },
+        "header": {
+          "properties": {
+            "showSearch": true,
+            "title": "Assignments"
+          },
+          "type": "AppHeader"
+        },
+        "timeline": {
+          "properties": {
+            "status_field": "status"
+          },
+          "type": "Timeline"
+        }
+      },
+      "template": "browse",
+      "theme": {
+        "atmosphere": "none",
+        "background_hex": "121212",
+        "dark_colors": [
+          [
+            "primary",
+            "#c5bcdc"
+          ],
+          [
+            "on-primary",
+            "#2c2343"
+          ],
+          [
+            "primary-container",
+            "#413465"
+          ],
+          [
+            "on-primary-container",
+            "#e2deed"
+          ],
+          [
+            "secondary",
+            "#ccc4d4"
+          ],
+          [
+            "on-secondary",
+            "#332b3b"
+          ],
+          [
+            "secondary-container",
+            "#4d4059"
+          ],
+          [
+            "on-secondary-container",
+            "#e6e2e9"
+          ],
+          [
+            "tertiary",
+            "#d7c1d1"
+          ],
+          [
+            "on-tertiary",
+            "#3e2838"
+          ],
+          [
+            "tertiary-container",
+            "#5e3b54"
+          ],
+          [
+            "on-tertiary-container",
+            "#ebe0e8"
+          ],
+          [
+            "error",
+            "#f3a5a5"
+          ],
+          [
+            "on-error",
+            "#5a0c0c"
+          ],
+          [
+            "error-container",
+            "#8a0f0f"
+          ],
+          [
+            "on-error-container",
+            "#f9d2d2"
+          ],
+          [
+            "surface",
+            "#0f0f10"
+          ],
+          [
+            "on-surface",
+            "#e5e5e6"
+          ],
+          [
+            "surface-variant",
+            "#4b4950"
+          ],
+          [
+            "on-surface-variant",
+            "#cbcace"
+          ],
+          [
+            "surface-container",
+            "#1e1e1f"
+          ],
+          [
+            "surface-container-low",
+            "#19191a"
+          ],
+          [
+            "surface-container-high",
+            "#2b2a2c"
+          ],
+          [
+            "surface-container-highest",
+            "#37373a"
+          ],
+          [
+            "surface-dim",
+            "#0f0f10"
+          ],
+          [
+            "surface-bright",
+            "#3c3c3f"
+          ],
+          [
+            "outline",
+            "#97949e"
+          ],
+          [
+            "outline-variant",
+            "#4b4950"
+          ],
+          [
+            "inverse-surface",
+            "#e5e5e6"
+          ],
+          [
+            "inverse-on-surface",
+            "#323234"
+          ],
+          [
+            "inverse-primary",
+            "#574488"
+          ],
+          [
+            "scrim",
+            "#000000"
+          ]
+        ],
+        "light_colors": [
+          [
+            "primary",
+            "#574488"
+          ],
+          [
+            "on-primary",
+            "#ffffff"
+          ],
+          [
+            "primary-container",
+            "#e2deed"
+          ],
+          [
+            "on-primary-container",
+            "#161221"
+          ],
+          [
+            "secondary",
+            "#675577"
+          ],
+          [
+            "on-secondary",
+            "#ffffff"
+          ],
+          [
+            "secondary-container",
+            "#e6e2e9"
+          ],
+          [
+            "on-secondary-container",
+            "#1a161d"
+          ],
+          [
+            "tertiary",
+            "#7e4e71"
+          ],
+          [
+            "on-tertiary",
+            "#ffffff"
+          ],
+          [
+            "tertiary-container",
+            "#ebe0e8"
+          ],
+          [
+            "on-tertiary-container",
+            "#1f141c"
+          ],
+          [
+            "error",
+            "#ba1212"
+          ],
+          [
+            "on-error",
+            "#ffffff"
+          ],
+          [
+            "error-container",
+            "#f9d2d2"
+          ],
+          [
+            "on-error-container",
+            "#2d0606"
+          ],
+          [
+            "surface",
+            "#fafafa"
+          ],
+          [
+            "on-surface",
+            "#19191a"
+          ],
+          [
+            "surface-variant",
+            "#e5e4e7"
+          ],
+          [
+            "on-surface-variant",
+            "#4b4950"
+          ],
+          [
+            "surface-container",
+            "#f0eff0"
+          ],
+          [
+            "surface-container-low",
+            "#f5f5f5"
+          ],
+          [
+            "surface-container-high",
+            "#eaeaeb"
+          ],
+          [
+            "surface-container-highest",
+            "#e5e5e6"
+          ],
+          [
+            "surface-dim",
+            "#dddddf"
+          ],
+          [
+            "surface-bright",
+            "#fafafa"
+          ],
+          [
+            "outline",
+            "#7d7986"
+          ],
+          [
+            "outline-variant",
+            "#cbcace"
+          ],
+          [
+            "inverse-surface",
+            "#323234"
+          ],
+          [
+            "inverse-on-surface",
+            "#f2f2f3"
+          ],
+          [
+            "inverse-primary",
+            "#c5bcdc"
+          ],
+          [
+            "scrim",
+            "#000000"
+          ]
+        ],
+        "mode": "dark",
+        "outline_hex": "#97949e",
+        "primary_hex": "#c5bcdc",
+        "primary_variant_hex": "#413465",
+        "secondary_hex": "#ccc4d4",
+        "seed_color": "FFD3AE",
+        "surface_elevated_hex": "#1e1e1f",
+        "surface_hex": "#0f0f10",
+        "surface_variant_hex": "#4b4950",
+        "tertiary_hex": "#d7c1d1"
+      }
+    },
+    {
+      "app_name": "EduTrack",
+      "app_type": "education",
+      "feature_name": "Assignment Tracking",
+      "model_name": "Assignment",
+      "nav": {
+        "fab_icon": null,
+        "fab_route": null,
+        "has_fab": false,
+        "items": [
+          {
+            "icon": "Home",
+            "label": "Home",
+            "route": "home",
+            "visible_to": []
+          },
+          {
+            "icon": "Assignment",
+            "label": "Assignments",
+            "route": "assignment_list",
+            "visible_to": []
+          },
+          {
+            "icon": "School",
+            "label": "Exams",
+            "route": "exam_list",
+            "visible_to": []
+          },
+          {
+            "icon": "Person",
+            "label": "Profile",
+            "route": "profile",
+            "visible_to": []
+          }
+        ],
+        "type": "bottom"
+      },
+      "package_name": "com.edutrack",
+      "screen_id": "assignment_tracking_detail",
+      "slots": {
+        "actions": {
+          "properties": {
+            "can_delete": true,
+            "can_edit": true,
+            "write_permissions": {}
+          },
+          "type": "DetailActions"
+        },
+        "body": {
+          "properties": {
+            "rows": [
+              {
+                "field": "title",
+                "is_badge": false,
+                "is_instant": false,
+                "label": "Title"
+              },
+              {
+                "field": "subject",
+                "is_badge": false,
+                "is_instant": false,
+                "label": "Subject"
+              },
+              {
+                "field": "dueDate",
+                "is_badge": false,
+                "is_instant": true,
+                "label": "Due Date"
+              },
+              {
+                "field": "instructions",
+                "is_badge": false,
+                "is_instant": false,
+                "label": "Instructions"
+              }
+            ]
+          },
+          "type": "DetailRows"
+        },
+        "cta": {
+          "properties": {
+            "primaryLabel": "Edit",
+            "secondaryLabel": "Delete"
+          },
+          "type": "ActionBar"
+        },
+        "title": {
+          "properties": {
+            "subtitle_field": "",
+            "title_field": "title"
+          },
+          "type": "DetailTitle"
+        }
+      },
+      "template": "detail",
+      "theme": {
+        "atmosphere": "none",
+        "background_hex": "121212",
+        "dark_colors": [
+          [
+            "primary",
+            "#c5bcdc"
+          ],
+          [
+            "on-primary",
+            "#2c2343"
+          ],
+          [
+            "primary-container",
+            "#413465"
+          ],
+          [
+            "on-primary-container",
+            "#e2deed"
+          ],
+          [
+            "secondary",
+            "#ccc4d4"
+          ],
+          [
+            "on-secondary",
+            "#332b3b"
+          ],
+          [
+            "secondary-container",
+            "#4d4059"
+          ],
+          [
+            "on-secondary-container",
+            "#e6e2e9"
+          ],
+          [
+            "tertiary",
+            "#d7c1d1"
+          ],
+          [
+            "on-tertiary",
+            "#3e2838"
+          ],
+          [
+            "tertiary-container",
+            "#5e3b54"
+          ],
+          [
+            "on-tertiary-container",
+            "#ebe0e8"
+          ],
+          [
+            "error",
+            "#f3a5a5"
+          ],
+          [
+            "on-error",
+            "#5a0c0c"
+          ],
+          [
+            "error-container",
+            "#8a0f0f"
+          ],
+          [
+            "on-error-container",
+            "#f9d2d2"
+          ],
+          [
+            "surface",
+            "#0f0f10"
+          ],
+          [
+            "on-surface",
+            "#e5e5e6"
+          ],
+          [
+            "surface-variant",
+            "#4b4950"
+          ],
+          [
+            "on-surface-variant",
+            "#cbcace"
+          ],
+          [
+            "surface-container",
+            "#1e1e1f"
+          ],
+          [
+            "surface-container-low",
+            "#19191a"
+          ],
+          [
+            "surface-container-high",
+            "#2b2a2c"
+          ],
+          [
+            "surface-container-highest",
+            "#37373a"
+          ],
+          [
+            "surface-dim",
+            "#0f0f10"
+          ],
+          [
+            "surface-bright",
+            "#3c3c3f"
+          ],
+          [
+            "outline",
+            "#97949e"
+          ],
+          [
+            "outline-variant",
+            "#4b4950"
+          ],
+          [
+            "inverse-surface",
+            "#e5e5e6"
+          ],
+          [
+            "inverse-on-surface",
+            "#323234"
+          ],
+          [
+            "inverse-primary",
+            "#574488"
+          ],
+          [
+            "scrim",
+            "#000000"
+          ]
+        ],
+        "light_colors": [
+          [
+            "primary",
+            "#574488"
+          ],
+          [
+            "on-primary",
+            "#ffffff"
+          ],
+          [
+            "primary-container",
+            "#e2deed"
+          ],
+          [
+            "on-primary-container",
+            "#161221"
+          ],
+          [
+            "secondary",
+            "#675577"
+          ],
+          [
+            "on-secondary",
+            "#ffffff"
+          ],
+          [
+            "secondary-container",
+            "#e6e2e9"
+          ],
+          [
+            "on-secondary-container",
+            "#1a161d"
+          ],
+          [
+            "tertiary",
+            "#7e4e71"
+          ],
+          [
+            "on-tertiary",
+            "#ffffff"
+          ],
+          [
+            "tertiary-container",
+            "#ebe0e8"
+          ],
+          [
+            "on-tertiary-container",
+            "#1f141c"
+          ],
+          [
+            "error",
+            "#ba1212"
+          ],
+          [
+            "on-error",
+            "#ffffff"
+          ],
+          [
+            "error-container",
+            "#f9d2d2"
+          ],
+          [
+            "on-error-container",
+            "#2d0606"
+          ],
+          [
+            "surface",
+            "#fafafa"
+          ],
+          [
+            "on-surface",
+            "#19191a"
+          ],
+          [
+            "surface-variant",
+            "#e5e4e7"
+          ],
+          [
+            "on-surface-variant",
+            "#4b4950"
+          ],
+          [
+            "surface-container",
+            "#f0eff0"
+          ],
+          [
+            "surface-container-low",
+            "#f5f5f5"
+          ],
+          [
+            "surface-container-high",
+            "#eaeaeb"
+          ],
+          [
+            "surface-container-highest",
+            "#e5e5e6"
+          ],
+          [
+            "surface-dim",
+            "#dddddf"
+          ],
+          [
+            "surface-bright",
+            "#fafafa"
+          ],
+          [
+            "outline",
+            "#7d7986"
+          ],
+          [
+            "outline-variant",
+            "#cbcace"
+          ],
+          [
+            "inverse-surface",
+            "#323234"
+          ],
+          [
+            "inverse-on-surface",
+            "#f2f2f3"
+          ],
+          [
+            "inverse-primary",
+            "#c5bcdc"
+          ],
+          [
+            "scrim",
+            "#000000"
+          ]
+        ],
+        "mode": "dark",
+        "outline_hex": "#97949e",
+        "primary_hex": "#c5bcdc",
+        "primary_variant_hex": "#413465",
+        "secondary_hex": "#ccc4d4",
+        "seed_color": "FFD3AE",
+        "surface_elevated_hex": "#1e1e1f",
+        "surface_hex": "#0f0f10",
+        "surface_variant_hex": "#4b4950",
+        "tertiary_hex": "#d7c1d1"
+      }
+    },
+    {
+      "app_name": "EduTrack",
+      "app_type": "education",
+      "feature_name": "Exam Tracking",
+      "model_name": "Exam",
+      "nav": {
+        "fab_icon": null,
+        "fab_route": null,
+        "has_fab": false,
+        "items": [
+          {
+            "icon": "Home",
+            "label": "Home",
+            "route": "home",
+            "visible_to": []
+          },
+          {
+            "icon": "Assignment",
+            "label": "Assignments",
+            "route": "assignment_list",
+            "visible_to": []
+          },
+          {
+            "icon": "School",
+            "label": "Exams",
+            "route": "exam_list",
+            "visible_to": []
+          },
+          {
+            "icon": "Person",
+            "label": "Profile",
+            "route": "profile",
+            "visible_to": []
+          }
+        ],
+        "type": "bottom"
+      },
+      "package_name": "com.edutrack",
+      "screen_id": "exam_tracking_list",
+      "slots": {
+        "content": {
+          "properties": {
+            "badge_field": "",
+            "molecule": "CourseCard",
+            "subtitle_field": "description",
+            "title_field": "name"
+          },
+          "type": "ScrollList"
+        },
+        "fab": {
+          "properties": {},
+          "type": "CreateFab"
+        },
+        "header": {
+          "properties": {
+            "showSearch": true,
+            "title": "Exams"
+          },
+          "type": "AppHeader"
+        },
+        "timeline": {
+          "properties": {
+            "status_field": "status"
+          },
+          "type": "Timeline"
+        }
+      },
+      "template": "browse",
+      "theme": {
+        "atmosphere": "none",
+        "background_hex": "121212",
+        "dark_colors": [
+          [
+            "primary",
+            "#c5bcdc"
+          ],
+          [
+            "on-primary",
+            "#2c2343"
+          ],
+          [
+            "primary-container",
+            "#413465"
+          ],
+          [
+            "on-primary-container",
+            "#e2deed"
+          ],
+          [
+            "secondary",
+            "#ccc4d4"
+          ],
+          [
+            "on-secondary",
+            "#332b3b"
+          ],
+          [
+            "secondary-container",
+            "#4d4059"
+          ],
+          [
+            "on-secondary-container",
+            "#e6e2e9"
+          ],
+          [
+            "tertiary",
+            "#d7c1d1"
+          ],
+          [
+            "on-tertiary",
+            "#3e2838"
+          ],
+          [
+            "tertiary-container",
+            "#5e3b54"
+          ],
+          [
+            "on-tertiary-container",
+            "#ebe0e8"
+          ],
+          [
+            "error",
+            "#f3a5a5"
+          ],
+          [
+            "on-error",
+            "#5a0c0c"
+          ],
+          [
+            "error-container",
+            "#8a0f0f"
+          ],
+          [
+            "on-error-container",
+            "#f9d2d2"
+          ],
+          [
+            "surface",
+            "#0f0f10"
+          ],
+          [
+            "on-surface",
+            "#e5e5e6"
+          ],
+          [
+            "surface-variant",
+            "#4b4950"
+          ],
+          [
+            "on-surface-variant",
+            "#cbcace"
+          ],
+          [
+            "surface-container",
+            "#1e1e1f"
+          ],
+          [
+            "surface-container-low",
+            "#19191a"
+          ],
+          [
+            "surface-container-high",
+            "#2b2a2c"
+          ],
+          [
+            "surface-container-highest",
+            "#37373a"
+          ],
+          [
+            "surface-dim",
+            "#0f0f10"
+          ],
+          [
+            "surface-bright",
+            "#3c3c3f"
+          ],
+          [
+            "outline",
+            "#97949e"
+          ],
+          [
+            "outline-variant",
+            "#4b4950"
+          ],
+          [
+            "inverse-surface",
+            "#e5e5e6"
+          ],
+          [
+            "inverse-on-surface",
+            "#323234"
+          ],
+          [
+            "inverse-primary",
+            "#574488"
+          ],
+          [
+            "scrim",
+            "#000000"
+          ]
+        ],
+        "light_colors": [
+          [
+            "primary",
+            "#574488"
+          ],
+          [
+            "on-primary",
+            "#ffffff"
+          ],
+          [
+            "primary-container",
+            "#e2deed"
+          ],
+          [
+            "on-primary-container",
+            "#161221"
+          ],
+          [
+            "secondary",
+            "#675577"
+          ],
+          [
+            "on-secondary",
+            "#ffffff"
+          ],
+          [
+            "secondary-container",
+            "#e6e2e9"
+          ],
+          [
+            "on-secondary-container",
+            "#1a161d"
+          ],
+          [
+            "tertiary",
+            "#7e4e71"
+          ],
+          [
+            "on-tertiary",
+            "#ffffff"
+          ],
+          [
+            "tertiary-container",
+            "#ebe0e8"
+          ],
+          [
+            "on-tertiary-container",
+            "#1f141c"
+          ],
+          [
+            "error",
+            "#ba1212"
+          ],
+          [
+            "on-error",
+            "#ffffff"
+          ],
+          [
+            "error-container",
+            "#f9d2d2"
+          ],
+          [
+            "on-error-container",
+            "#2d0606"
+          ],
+          [
+            "surface",
+            "#fafafa"
+          ],
+          [
+            "on-surface",
+            "#19191a"
+          ],
+          [
+            "surface-variant",
+            "#e5e4e7"
+          ],
+          [
+            "on-surface-variant",
+            "#4b4950"
+          ],
+          [
+            "surface-container",
+            "#f0eff0"
+          ],
+          [
+            "surface-container-low",
+            "#f5f5f5"
+          ],
+          [
+            "surface-container-high",
+            "#eaeaeb"
+          ],
+          [
+            "surface-container-highest",
+            "#e5e5e6"
+          ],
+          [
+            "surface-dim",
+            "#dddddf"
+          ],
+          [
+            "surface-bright",
+            "#fafafa"
+          ],
+          [
+            "outline",
+            "#7d7986"
+          ],
+          [
+            "outline-variant",
+            "#cbcace"
+          ],
+          [
+            "inverse-surface",
+            "#323234"
+          ],
+          [
+            "inverse-on-surface",
+            "#f2f2f3"
+          ],
+          [
+            "inverse-primary",
+            "#c5bcdc"
+          ],
+          [
+            "scrim",
+            "#000000"
+          ]
+        ],
+        "mode": "dark",
+        "outline_hex": "#97949e",
+        "primary_hex": "#c5bcdc",
+        "primary_variant_hex": "#413465",
+        "secondary_hex": "#ccc4d4",
+        "seed_color": "FFD3AE",
+        "surface_elevated_hex": "#1e1e1f",
+        "surface_hex": "#0f0f10",
+        "surface_variant_hex": "#4b4950",
+        "tertiary_hex": "#d7c1d1"
+      }
+    },
+    {
+      "app_name": "EduTrack",
+      "app_type": "education",
+      "feature_name": "Exam Tracking",
+      "model_name": "Exam",
+      "nav": {
+        "fab_icon": null,
+        "fab_route": null,
+        "has_fab": false,
+        "items": [
+          {
+            "icon": "Home",
+            "label": "Home",
+            "route": "home",
+            "visible_to": []
+          },
+          {
+            "icon": "Assignment",
+            "label": "Assignments",
+            "route": "assignment_list",
+            "visible_to": []
+          },
+          {
+            "icon": "School",
+            "label": "Exams",
+            "route": "exam_list",
+            "visible_to": []
+          },
+          {
+            "icon": "Person",
+            "label": "Profile",
+            "route": "profile",
+            "visible_to": []
+          }
+        ],
+        "type": "bottom"
+      },
+      "package_name": "com.edutrack",
+      "screen_id": "exam_tracking_detail",
+      "slots": {
+        "actions": {
+          "properties": {
+            "can_delete": true,
+            "can_edit": true,
+            "write_permissions": {}
+          },
+          "type": "DetailActions"
+        },
+        "body": {
+          "properties": {
+            "rows": [
+              {
+                "field": "name",
+                "is_badge": false,
+                "is_instant": false,
+                "label": "Name"
+              },
+              {
+                "field": "subject",
+                "is_badge": false,
+                "is_instant": false,
+                "label": "Subject"
+              },
+              {
+                "field": "dateTime",
+                "is_badge": false,
+                "is_instant": true,
+                "label": "Date Time"
+              },
+              {
+                "field": "description",
+                "is_badge": false,
+                "is_instant": false,
+                "label": "Description"
+              },
+              {
+                "field": "studyReference",
+                "is_badge": false,
+                "is_instant": false,
+                "label": "Study Reference"
+              }
+            ]
+          },
+          "type": "DetailRows"
+        },
+        "cta": {
+          "properties": {
+            "primaryLabel": "Edit",
+            "secondaryLabel": "Delete"
+          },
+          "type": "ActionBar"
+        },
+        "title": {
+          "properties": {
+            "subtitle_field": "description",
+            "title_field": "name"
+          },
+          "type": "DetailTitle"
+        }
+      },
+      "template": "detail",
+      "theme": {
+        "atmosphere": "none",
+        "background_hex": "121212",
+        "dark_colors": [
+          [
+            "primary",
+            "#c5bcdc"
+          ],
+          [
+            "on-primary",
+            "#2c2343"
+          ],
+          [
+            "primary-container",
+            "#413465"
+          ],
+          [
+            "on-primary-container",
+            "#e2deed"
+          ],
+          [
+            "secondary",
+            "#ccc4d4"
+          ],
+          [
+            "on-secondary",
+            "#332b3b"
+          ],
+          [
+            "secondary-container",
+            "#4d4059"
+          ],
+          [
+            "on-secondary-container",
+            "#e6e2e9"
+          ],
+          [
+            "tertiary",
+            "#d7c1d1"
+          ],
+          [
+            "on-tertiary",
+            "#3e2838"
+          ],
+          [
+            "tertiary-container",
+            "#5e3b54"
+          ],
+          [
+            "on-tertiary-container",
+            "#ebe0e8"
+          ],
+          [
+            "error",
+            "#f3a5a5"
+          ],
+          [
+            "on-error",
+            "#5a0c0c"
+          ],
+          [
+            "error-container",
+            "#8a0f0f"
+          ],
+          [
+            "on-error-container",
+            "#f9d2d2"
+          ],
+          [
+            "surface",
+            "#0f0f10"
+          ],
+          [
+            "on-surface",
+            "#e5e5e6"
+          ],
+          [
+            "surface-variant",
+            "#4b4950"
+          ],
+          [
+            "on-surface-variant",
+            "#cbcace"
+          ],
+          [
+            "surface-container",
+            "#1e1e1f"
+          ],
+          [
+            "surface-container-low",
+            "#19191a"
+          ],
+          [
+            "surface-container-high",
+            "#2b2a2c"
+          ],
+          [
+            "surface-container-highest",
+            "#37373a"
+          ],
+          [
+            "surface-dim",
+            "#0f0f10"
+          ],
+          [
+            "surface-bright",
+            "#3c3c3f"
+          ],
+          [
+            "outline",
+            "#97949e"
+          ],
+          [
+            "outline-variant",
+            "#4b4950"
+          ],
+          [
+            "inverse-surface",
+            "#e5e5e6"
+          ],
+          [
+            "inverse-on-surface",
+            "#323234"
+          ],
+          [
+            "inverse-primary",
+            "#574488"
+          ],
+          [
+            "scrim",
+            "#000000"
+          ]
+        ],
+        "light_colors": [
+          [
+            "primary",
+            "#574488"
+          ],
+          [
+            "on-primary",
+            "#ffffff"
+          ],
+          [
+            "primary-container",
+            "#e2deed"
+          ],
+          [
+            "on-primary-container",
+            "#161221"
+          ],
+          [
+            "secondary",
+            "#675577"
+          ],
+          [
+            "on-secondary",
+            "#ffffff"
+          ],
+          [
+            "secondary-container",
+            "#e6e2e9"
+          ],
+          [
+            "on-secondary-container",
+            "#1a161d"
+          ],
+          [
+            "tertiary",
+            "#7e4e71"
+          ],
+          [
+            "on-tertiary",
+            "#ffffff"
+          ],
+          [
+            "tertiary-container",
+            "#ebe0e8"
+          ],
+          [
+            "on-tertiary-container",
+            "#1f141c"
+          ],
+          [
+            "error",
+            "#ba1212"
+          ],
+          [
+            "on-error",
+            "#ffffff"
+          ],
+          [
+            "error-container",
+            "#f9d2d2"
+          ],
+          [
+            "on-error-container",
+            "#2d0606"
+          ],
+          [
+            "surface",
+            "#fafafa"
+          ],
+          [
+            "on-surface",
+            "#19191a"
+          ],
+          [
+            "surface-variant",
+            "#e5e4e7"
+          ],
+          [
+            "on-surface-variant",
+            "#4b4950"
+          ],
+          [
+            "surface-container",
+            "#f0eff0"
+          ],
+          [
+            "surface-container-low",
+            "#f5f5f5"
+          ],
+          [
+            "surface-container-high",
+            "#eaeaeb"
+          ],
+          [
+            "surface-container-highest",
+            "#e5e5e6"
+          ],
+          [
+            "surface-dim",
+            "#dddddf"
+          ],
+          [
+            "surface-bright",
+            "#fafafa"
+          ],
+          [
+            "outline",
+            "#7d7986"
+          ],
+          [
+            "outline-variant",
+            "#cbcace"
+          ],
+          [
+            "inverse-surface",
+            "#323234"
+          ],
+          [
+            "inverse-on-surface",
+            "#f2f2f3"
+          ],
+          [
+            "inverse-primary",
+            "#c5bcdc"
+          ],
+          [
+            "scrim",
+            "#000000"
+          ]
+        ],
+        "mode": "dark",
+        "outline_hex": "#97949e",
+        "primary_hex": "#c5bcdc",
+        "primary_variant_hex": "#413465",
+        "secondary_hex": "#ccc4d4",
+        "seed_color": "FFD3AE",
+        "surface_elevated_hex": "#1e1e1f",
+        "surface_hex": "#0f0f10",
+        "surface_variant_hex": "#4b4950",
+        "tertiary_hex": "#d7c1d1"
+      }
+    },
+    {
+      "app_name": "EduTrack",
+      "app_type": "education",
+      "feature_name": "Project Tracking",
+      "model_name": "Project",
+      "nav": {
+        "fab_icon": null,
+        "fab_route": null,
+        "has_fab": false,
+        "items": [
+          {
+            "icon": "Home",
+            "label": "Home",
+            "route": "home",
+            "visible_to": []
+          },
+          {
+            "icon": "Assignment",
+            "label": "Assignments",
+            "route": "assignment_list",
+            "visible_to": []
+          },
+          {
+            "icon": "School",
+            "label": "Exams",
+            "route": "exam_list",
+            "visible_to": []
+          },
+          {
+            "icon": "Person",
+            "label": "Profile",
+            "route": "profile",
+            "visible_to": []
+          }
+        ],
+        "type": "bottom"
+      },
+      "package_name": "com.edutrack",
+      "screen_id": "project_tracking_list",
+      "slots": {
+        "content": {
+          "properties": {
+            "badge_field": "",
+            "molecule": "CourseCard",
+            "subtitle_field": "description",
+            "title_field": "title"
+          },
+          "type": "ScrollList"
+        },
+        "fab": {
+          "properties": {},
+          "type": "CreateFab"
+        },
+        "header": {
+          "properties": {
+            "showSearch": true,
+            "title": "Projects"
+          },
+          "type": "AppHeader"
+        },
+        "timeline": {
+          "properties": {
+            "status_field": "status"
+          },
+          "type": "Timeline"
+        }
+      },
+      "template": "browse",
+      "theme": {
+        "atmosphere": "none",
+        "background_hex": "121212",
+        "dark_colors": [
+          [
+            "primary",
+            "#c5bcdc"
+          ],
+          [
+            "on-primary",
+            "#2c2343"
+          ],
+          [
+            "primary-container",
+            "#413465"
+          ],
+          [
+            "on-primary-container",
+            "#e2deed"
+          ],
+          [
+            "secondary",
+            "#ccc4d4"
+          ],
+          [
+            "on-secondary",
+            "#332b3b"
+          ],
+          [
+            "secondary-container",
+            "#4d4059"
+          ],
+          [
+            "on-secondary-container",
+            "#e6e2e9"
+          ],
+          [
+            "tertiary",
+            "#d7c1d1"
+          ],
+          [
+            "on-tertiary",
+            "#3e2838"
+          ],
+          [
+            "tertiary-container",
+            "#5e3b54"
+          ],
+          [
+            "on-tertiary-container",
+            "#ebe0e8"
+          ],
+          [
+            "error",
+            "#f3a5a5"
+          ],
+          [
+            "on-error",
+            "#5a0c0c"
+          ],
+          [
+            "error-container",
+            "#8a0f0f"
+          ],
+          [
+            "on-error-container",
+            "#f9d2d2"
+          ],
+          [
+            "surface",
+            "#0f0f10"
+          ],
+          [
+            "on-surface",
+            "#e5e5e6"
+          ],
+          [
+            "surface-variant",
+            "#4b4950"
+          ],
+          [
+            "on-surface-variant",
+            "#cbcace"
+          ],
+          [
+            "surface-container",
+            "#1e1e1f"
+          ],
+          [
+            "surface-container-low",
+            "#19191a"
+          ],
+          [
+            "surface-container-high",
+            "#2b2a2c"
+          ],
+          [
+            "surface-container-highest",
+            "#37373a"
+          ],
+          [
+            "surface-dim",
+            "#0f0f10"
+          ],
+          [
+            "surface-bright",
+            "#3c3c3f"
+          ],
+          [
+            "outline",
+            "#97949e"
+          ],
+          [
+            "outline-variant",
+            "#4b4950"
+          ],
+          [
+            "inverse-surface",
+            "#e5e5e6"
+          ],
+          [
+            "inverse-on-surface",
+            "#323234"
+          ],
+          [
+            "inverse-primary",
+            "#574488"
+          ],
+          [
+            "scrim",
+            "#000000"
+          ]
+        ],
+        "light_colors": [
+          [
+            "primary",
+            "#574488"
+          ],
+          [
+            "on-primary",
+            "#ffffff"
+          ],
+          [
+            "primary-container",
+            "#e2deed"
+          ],
+          [
+            "on-primary-container",
+            "#161221"
+          ],
+          [
+            "secondary",
+            "#675577"
+          ],
+          [
+            "on-secondary",
+            "#ffffff"
+          ],
+          [
+            "secondary-container",
+            "#e6e2e9"
+          ],
+          [
+            "on-secondary-container",
+            "#1a161d"
+          ],
+          [
+            "tertiary",
+            "#7e4e71"
+          ],
+          [
+            "on-tertiary",
+            "#ffffff"
+          ],
+          [
+            "tertiary-container",
+            "#ebe0e8"
+          ],
+          [
+            "on-tertiary-container",
+            "#1f141c"
+          ],
+          [
+            "error",
+            "#ba1212"
+          ],
+          [
+            "on-error",
+            "#ffffff"
+          ],
+          [
+            "error-container",
+            "#f9d2d2"
+          ],
+          [
+            "on-error-container",
+            "#2d0606"
+          ],
+          [
+            "surface",
+            "#fafafa"
+          ],
+          [
+            "on-surface",
+            "#19191a"
+          ],
+          [
+            "surface-variant",
+            "#e5e4e7"
+          ],
+          [
+            "on-surface-variant",
+            "#4b4950"
+          ],
+          [
+            "surface-container",
+            "#f0eff0"
+          ],
+          [
+            "surface-container-low",
+            "#f5f5f5"
+          ],
+          [
+            "surface-container-high",
+            "#eaeaeb"
+          ],
+          [
+            "surface-container-highest",
+            "#e5e5e6"
+          ],
+          [
+            "surface-dim",
+            "#dddddf"
+          ],
+          [
+            "surface-bright",
+            "#fafafa"
+          ],
+          [
+            "outline",
+            "#7d7986"
+          ],
+          [
+            "outline-variant",
+            "#cbcace"
+          ],
+          [
+            "inverse-surface",
+            "#323234"
+          ],
+          [
+            "inverse-on-surface",
+            "#f2f2f3"
+          ],
+          [
+            "inverse-primary",
+            "#c5bcdc"
+          ],
+          [
+            "scrim",
+            "#000000"
+          ]
+        ],
+        "mode": "dark",
+        "outline_hex": "#97949e",
+        "primary_hex": "#c5bcdc",
+        "primary_variant_hex": "#413465",
+        "secondary_hex": "#ccc4d4",
+        "seed_color": "FFD3AE",
+        "surface_elevated_hex": "#1e1e1f",
+        "surface_hex": "#0f0f10",
+        "surface_variant_hex": "#4b4950",
+        "tertiary_hex": "#d7c1d1"
+      }
+    },
+    {
+      "app_name": "EduTrack",
+      "app_type": "education",
+      "feature_name": "Project Tracking",
+      "model_name": "Project",
+      "nav": {
+        "fab_icon": null,
+        "fab_route": null,
+        "has_fab": false,
+        "items": [
+          {
+            "icon": "Home",
+            "label": "Home",
+            "route": "home",
+            "visible_to": []
+          },
+          {
+            "icon": "Assignment",
+            "label": "Assignments",
+            "route": "assignment_list",
+            "visible_to": []
+          },
+          {
+            "icon": "School",
+            "label": "Exams",
+            "route": "exam_list",
+            "visible_to": []
+          },
+          {
+            "icon": "Person",
+            "label": "Profile",
+            "route": "profile",
+            "visible_to": []
+          }
+        ],
+        "type": "bottom"
+      },
+      "package_name": "com.edutrack",
+      "screen_id": "project_tracking_detail",
+      "slots": {
+        "actions": {
+          "properties": {
+            "can_delete": true,
+            "can_edit": true,
+            "write_permissions": {}
+          },
+          "type": "DetailActions"
+        },
+        "body": {
+          "properties": {
+            "rows": [
+              {
+                "field": "title",
+                "is_badge": false,
+                "is_instant": false,
+                "label": "Title"
+              },
+              {
+                "field": "subject",
+                "is_badge": false,
+                "is_instant": false,
+                "label": "Subject"
+              },
+              {
+                "field": "dueDate",
+                "is_badge": false,
+                "is_instant": true,
+                "label": "Due Date"
+              },
+              {
+                "field": "description",
+                "is_badge": false,
+                "is_instant": false,
+                "label": "Description"
+              },
+              {
+                "field": "teamMembers",
+                "is_badge": false,
+                "is_instant": false,
+                "label": "Team Members"
+              }
+            ]
+          },
+          "type": "DetailRows"
+        },
+        "cta": {
+          "properties": {
+            "primaryLabel": "Edit",
+            "secondaryLabel": "Delete"
+          },
+          "type": "ActionBar"
+        },
+        "title": {
+          "properties": {
+            "subtitle_field": "description",
+            "title_field": "title"
+          },
+          "type": "DetailTitle"
+        }
+      },
+      "template": "detail",
+      "theme": {
+        "atmosphere": "none",
+        "background_hex": "121212",
+        "dark_colors": [
+          [
+            "primary",
+            "#c5bcdc"
+          ],
+          [
+            "on-primary",
+            "#2c2343"
+          ],
+          [
+            "primary-container",
+            "#413465"
+          ],
+          [
+            "on-primary-container",
+            "#e2deed"
+          ],
+          [
+            "secondary",
+            "#ccc4d4"
+          ],
+          [
+            "on-secondary",
+            "#332b3b"
+          ],
+          [
+            "secondary-container",
+            "#4d4059"
+          ],
+          [
+            "on-secondary-container",
+            "#e6e2e9"
+          ],
+          [
+            "tertiary",
+            "#d7c1d1"
+          ],
+          [
+            "on-tertiary",
+            "#3e2838"
+          ],
+          [
+            "tertiary-container",
+            "#5e3b54"
+          ],
+          [
+            "on-tertiary-container",
+            "#ebe0e8"
+          ],
+          [
+            "error",
+            "#f3a5a5"
+          ],
+          [
+            "on-error",
+            "#5a0c0c"
+          ],
+          [
+            "error-container",
+            "#8a0f0f"
+          ],
+          [
+            "on-error-container",
+            "#f9d2d2"
+          ],
+          [
+            "surface",
+            "#0f0f10"
+          ],
+          [
+            "on-surface",
+            "#e5e5e6"
+          ],
+          [
+            "surface-variant",
+            "#4b4950"
+          ],
+          [
+            "on-surface-variant",
+            "#cbcace"
+          ],
+          [
+            "surface-container",
+            "#1e1e1f"
+          ],
+          [
+            "surface-container-low",
+            "#19191a"
+          ],
+          [
+            "surface-container-high",
+            "#2b2a2c"
+          ],
+          [
+            "surface-container-highest",
+            "#37373a"
+          ],
+          [
+            "surface-dim",
+            "#0f0f10"
+          ],
+          [
+            "surface-bright",
+            "#3c3c3f"
+          ],
+          [
+            "outline",
+            "#97949e"
+          ],
+          [
+            "outline-variant",
+            "#4b4950"
+          ],
+          [
+            "inverse-surface",
+            "#e5e5e6"
+          ],
+          [
+            "inverse-on-surface",
+            "#323234"
+          ],
+          [
+            "inverse-primary",
+            "#574488"
+          ],
+          [
+            "scrim",
+            "#000000"
+          ]
+        ],
+        "light_colors": [
+          [
+            "primary",
+            "#574488"
+          ],
+          [
+            "on-primary",
+            "#ffffff"
+          ],
+          [
+            "primary-container",
+            "#e2deed"
+          ],
+          [
+            "on-primary-container",
+            "#161221"
+          ],
+          [
+            "secondary",
+            "#675577"
+          ],
+          [
+            "on-secondary",
+            "#ffffff"
+          ],
+          [
+            "secondary-container",
+            "#e6e2e9"
+          ],
+          [
+            "on-secondary-container",
+            "#1a161d"
+          ],
+          [
+            "tertiary",
+            "#7e4e71"
+          ],
+          [
+            "on-tertiary",
+            "#ffffff"
+          ],
+          [
+            "tertiary-container",
+            "#ebe0e8"
+          ],
+          [
+            "on-tertiary-container",
+            "#1f141c"
+          ],
+          [
+            "error",
+            "#ba1212"
+          ],
+          [
+            "on-error",
+            "#ffffff"
+          ],
+          [
+            "error-container",
+            "#f9d2d2"
+          ],
+          [
+            "on-error-container",
+            "#2d0606"
+          ],
+          [
+            "surface",
+            "#fafafa"
+          ],
+          [
+            "on-surface",
+            "#19191a"
+          ],
+          [
+            "surface-variant",
+            "#e5e4e7"
+          ],
+          [
+            "on-surface-variant",
+            "#4b4950"
+          ],
+          [
+            "surface-container",
+            "#f0eff0"
+          ],
+          [
+            "surface-container-low",
+            "#f5f5f5"
+          ],
+          [
+            "surface-container-high",
+            "#eaeaeb"
+          ],
+          [
+            "surface-container-highest",
+            "#e5e5e6"
+          ],
+          [
+            "surface-dim",
+            "#dddddf"
+          ],
+          [
+            "surface-bright",
+            "#fafafa"
+          ],
+          [
+            "outline",
+            "#7d7986"
+          ],
+          [
+            "outline-variant",
+            "#cbcace"
+          ],
+          [
+            "inverse-surface",
+            "#323234"
+          ],
+          [
+            "inverse-on-surface",
+            "#f2f2f3"
+          ],
+          [
+            "inverse-primary",
+            "#c5bcdc"
+          ],
+          [
+            "scrim",
+            "#000000"
+          ]
+        ],
+        "mode": "dark",
+        "outline_hex": "#97949e",
+        "primary_hex": "#c5bcdc",
+        "primary_variant_hex": "#413465",
+        "secondary_hex": "#ccc4d4",
+        "seed_color": "FFD3AE",
+        "surface_elevated_hex": "#1e1e1f",
+        "surface_hex": "#0f0f10",
+        "surface_variant_hex": "#4b4950",
+        "tertiary_hex": "#d7c1d1"
+      }
+    },
+    {
+      "app_name": "EduTrack",
+      "app_type": "education",
+      "feature_name": "",
+      "model_name": "",
+      "nav": {
+        "fab_icon": null,
+        "fab_route": null,
+        "has_fab": false,
+        "items": [
+          {
+            "icon": "Home",
+            "label": "Home",
+            "route": "home",
+            "visible_to": []
+          },
+          {
+            "icon": "Assignment",
+            "label": "Assignments",
+            "route": "assignment_list",
+            "visible_to": []
+          },
+          {
+            "icon": "School",
+            "label": "Exams",
+            "route": "exam_list",
+            "visible_to": []
+          },
+          {
+            "icon": "Person",
+            "label": "Profile",
+            "route": "profile",
+            "visible_to": []
+          }
+        ],
+        "type": "bottom"
+      },
+      "package_name": "com.edutrack",
+      "screen_id": "profile",
+      "slots": {
+        "content": {
+          "properties": {
+            "sections": [
+              {
+                "items": [
+                  "Edit Profile",
+                  "Change Password"
+                ],
+                "title": "Account"
+              },
+              {
+                "items": [
+                  "Notifications",
+                  "Dark Mode",
+                  "Language"
+                ],
+                "title": "Preferences"
+              },
+              {
+                "items": [
+                  "Help & Support",
+                  "Privacy Policy",
+                  "Terms of Service"
+                ],
+                "title": "About"
+              }
+            ]
+          },
+          "type": "Settings"
+        },
+        "header": {
+          "properties": {},
+          "type": "ProfileHeader"
+        },
+        "stats": {
+          "properties": {},
+          "type": "ProfileStats"
+        }
+      },
+      "template": "profile",
+      "theme": {
+        "atmosphere": "none",
+        "background_hex": "121212",
+        "dark_colors": [
+          [
+            "primary",
+            "#c5bcdc"
+          ],
+          [
+            "on-primary",
+            "#2c2343"
+          ],
+          [
+            "primary-container",
+            "#413465"
+          ],
+          [
+            "on-primary-container",
+            "#e2deed"
+          ],
+          [
+            "secondary",
+            "#ccc4d4"
+          ],
+          [
+            "on-secondary",
+            "#332b3b"
+          ],
+          [
+            "secondary-container",
+            "#4d4059"
+          ],
+          [
+            "on-secondary-container",
+            "#e6e2e9"
+          ],
+          [
+            "tertiary",
+            "#d7c1d1"
+          ],
+          [
+            "on-tertiary",
+            "#3e2838"
+          ],
+          [
+            "tertiary-container",
+            "#5e3b54"
+          ],
+          [
+            "on-tertiary-container",
+            "#ebe0e8"
+          ],
+          [
+            "error",
+            "#f3a5a5"
+          ],
+          [
+            "on-error",
+            "#5a0c0c"
+          ],
+          [
+            "error-container",
+            "#8a0f0f"
+          ],
+          [
+            "on-error-container",
+            "#f9d2d2"
+          ],
+          [
+            "surface",
+            "#0f0f10"
+          ],
+          [
+            "on-surface",
+            "#e5e5e6"
+          ],
+          [
+            "surface-variant",
+            "#4b4950"
+          ],
+          [
+            "on-surface-variant",
+            "#cbcace"
+          ],
+          [
+            "surface-container",
+            "#1e1e1f"
+          ],
+          [
+            "surface-container-low",
+            "#19191a"
+          ],
+          [
+            "surface-container-high",
+            "#2b2a2c"
+          ],
+          [
+            "surface-container-highest",
+            "#37373a"
+          ],
+          [
+            "surface-dim",
+            "#0f0f10"
+          ],
+          [
+            "surface-bright",
+            "#3c3c3f"
+          ],
+          [
+            "outline",
+            "#97949e"
+          ],
+          [
+            "outline-variant",
+            "#4b4950"
+          ],
+          [
+            "inverse-surface",
+            "#e5e5e6"
+          ],
+          [
+            "inverse-on-surface",
+            "#323234"
+          ],
+          [
+            "inverse-primary",
+            "#574488"
+          ],
+          [
+            "scrim",
+            "#000000"
+          ]
+        ],
+        "light_colors": [
+          [
+            "primary",
+            "#574488"
+          ],
+          [
+            "on-primary",
+            "#ffffff"
+          ],
+          [
+            "primary-container",
+            "#e2deed"
+          ],
+          [
+            "on-primary-container",
+            "#161221"
+          ],
+          [
+            "secondary",
+            "#675577"
+          ],
+          [
+            "on-secondary",
+            "#ffffff"
+          ],
+          [
+            "secondary-container",
+            "#e6e2e9"
+          ],
+          [
+            "on-secondary-container",
+            "#1a161d"
+          ],
+          [
+            "tertiary",
+            "#7e4e71"
+          ],
+          [
+            "on-tertiary",
+            "#ffffff"
+          ],
+          [
+            "tertiary-container",
+            "#ebe0e8"
+          ],
+          [
+            "on-tertiary-container",
+            "#1f141c"
+          ],
+          [
+            "error",
+            "#ba1212"
+          ],
+          [
+            "on-error",
+            "#ffffff"
+          ],
+          [
+            "error-container",
+            "#f9d2d2"
+          ],
+          [
+            "on-error-container",
+            "#2d0606"
+          ],
+          [
+            "surface",
+            "#fafafa"
+          ],
+          [
+            "on-surface",
+            "#19191a"
+          ],
+          [
+            "surface-variant",
+            "#e5e4e7"
+          ],
+          [
+            "on-surface-variant",
+            "#4b4950"
+          ],
+          [
+            "surface-container",
+            "#f0eff0"
+          ],
+          [
+            "surface-container-low",
+            "#f5f5f5"
+          ],
+          [
+            "surface-container-high",
+            "#eaeaeb"
+          ],
+          [
+            "surface-container-highest",
+            "#e5e5e6"
+          ],
+          [
+            "surface-dim",
+            "#dddddf"
+          ],
+          [
+            "surface-bright",
+            "#fafafa"
+          ],
+          [
+            "outline",
+            "#7d7986"
+          ],
+          [
+            "outline-variant",
+            "#cbcace"
+          ],
+          [
+            "inverse-surface",
+            "#323234"
+          ],
+          [
+            "inverse-on-surface",
+            "#f2f2f3"
+          ],
+          [
+            "inverse-primary",
+            "#c5bcdc"
+          ],
+          [
+            "scrim",
+            "#000000"
+          ]
+        ],
+        "mode": "dark",
+        "outline_hex": "#97949e",
+        "primary_hex": "#c5bcdc",
+        "primary_variant_hex": "#413465",
+        "secondary_hex": "#ccc4d4",
+        "seed_color": "FFD3AE",
+        "surface_elevated_hex": "#1e1e1f",
+        "surface_hex": "#0f0f10",
+        "surface_variant_hex": "#4b4950",
+        "tertiary_hex": "#d7c1d1"
+      }
+    }
+  ]
+}
